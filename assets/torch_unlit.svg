@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="48" height="64" viewBox="0 0 48 64">
+  <!-- Iron Bracket -->
+  <rect x="20" y="32" width="8" height="28" fill="#3a2f45"/>
+  <rect x="14" y="32" width="20" height="6" fill="#4a3c58"/>
+  <!-- Torch Wood -->
+  <rect x="16" y="16" width="16" height="20" fill="#603d20"/>
+  <!-- Unlit Tip (Smoke) -->
+  <ellipse cx="24" cy="14" rx="6" ry="4" fill="#332820"/>
+</svg>

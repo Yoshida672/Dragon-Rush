@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="768" viewBox="0 0 1024 768">
+  <defs>
+    <linearGradient id="l3Grad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#040b08"/>
+      <stop offset="50%" stop-color="#081813"/>
+      <stop offset="100%" stop-color="#0e291e"/>
+    </linearGradient>
+  </defs>
+  <rect width="1024" height="768" fill="url(#l3Grad)"/>
+  <path d="M 0,0 L 220,0 L 170,220 L 0,150 Z" fill="#06120e"/>
+  <path d="M 450,0 L 700,0 L 620,250 L 380,180 Z" fill="#040f0c"/>
+  <!-- Prison Chains -->
+  <line x1="200" y1="0" x2="200" y2="450" stroke="#2a453b" stroke-width="4" stroke-dasharray="10 8"/>
+  <line x1="600" y1="0" x2="600" y2="520" stroke="#2a453b" stroke-width="4" stroke-dasharray="10 8"/>
+  <line x1="850" y1="0" x2="850" y2="400" stroke="#2a453b" stroke-width="4" stroke-dasharray="10 8"/>
+</svg>

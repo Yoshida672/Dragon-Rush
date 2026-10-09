@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dragon Rush - Fuga da Dungeon | Jogo de Plataforma & Parkour</title>
+    <meta name="description" content="Um jogo de plataforma e parkour eletrizante em que você deve fugir de um dragão faminto dentro de uma dungeon perigosa!">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;900&family=Outfit:wght@400;600;800&family=Press+Start+2P&display=swap" rel="stylesheet">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="game-container">
+        <!-- Canvas do Jogo -->
+        <canvas id="gameCanvas"></canvas>
+
+        <!-- UI Overlay -->
+        <div id="ui-overlay">
+            <!-- Menu Principal -->
+            <div id="main-menu" class="menu-screen active">
+                <div class="header-container">
+                    <div class="dragon-badge">🔥 ESCAPE DA DUNGEON 🔥</div>
+                    <h1 class="game-title">DRAGON <span class="highlight">RUSH</span></h1>
+                    <p class="game-subtitle">Corra, salte e sobreviva à fúria do Dragão!</p>
+                </div>
+
+                <div class="menu-buttons">
+                    <button id="btn-play" class="btn btn-primary">
+                        <span class="btn-icon">▶</span>
+                        <span class="btn-text">INICIAR FUGA</span>
+                        <span class="btn-glow"></span>
+                    </button>
+                    
+                    <button id="btn-levels" class="btn btn-secondary">
+                        <span class="btn-icon">📜</span>
+                        <span class="btn-text">SELEÇÃO DE NÍVEIS</span>
+                    </button>
+
+                    <button id="btn-controls" class="btn btn-secondary">
+                        <span class="btn-icon">🎮</span>
+                        <span class="btn-text">COMO JOGAR</span>
+                    </button>
+
+                    <button id="btn-settings" class="btn btn-secondary">
+                        <span class="btn-icon">⚙️</span>
+                        <span class="btn-text">OPÇÕES & SOM</span>
+                    </button>
+                </div>
+
+                <div class="footer-info">
+                    <span>v2.0.0 • Parkour Dungeon Platformer</span>
+                    <button id="btn-audio-toggle" class="icon-btn" title="Alternar Som">🔊</button>
+                </div>
+            </div>
+
+            <!-- Seleção de Níveis -->
+            <div id="screen-levels" class="menu-screen hidden">
+                <div class="modal-card">
+                    <h2 class="modal-title">SELECIONE O NÍVEL</h2>
+                    <div class="levels-grid">
+                        <div class="level-card active" data-level="1">
+                            <span class="level-num">Nível 1</span>
+                            <h3>Caverna Sombria</h3>
+                            <p>O despertar do dragão. Colete as tochas e escape!</p>
+                            <div class="level-status unlocked">DESBLOQUEADO</div>
+                            <div class="level-best-time" data-level-time="1"></div>
+                            <div class="level-best-rank" data-level-rank="1"></div>
+                        </div>
+
+                        <div class="level-card" data-level="2">
+                            <span class="level-num">Nível 2</span>
+                            <h3>Ponte de Lava</h3>
+                            <p>Cachoeiras de lava escaldantes e pontes estreitas!</p>
+                            <div class="level-status">🔒 BLOQUEADO</div>
+                            <div class="level-best-time" data-level-time="2"></div>
+                            <div class="level-best-rank" data-level-rank="2"></div>
+                        </div>
+
+                        <div class="level-card" data-level="3">
+                            <span class="level-num">Nível 3</span>
+                            <h3>Ruínas da Prisão</h3>
+                            <p>Plataformas móveis, zonas de vento e armadilhas!</p>
+                            <div class="level-status">🔒 BLOQUEADO</div>
+                            <div class="level-best-time" data-level-time="3"></div>
+                            <div class="level-best-rank" data-level-rank="3"></div>
+                        </div>
+
+                        <div class="level-card" data-level="4">
+                            <span class="level-num">Nível 4</span>
+                            <h3>A Forja do Dragão</h3>
+                            <p>Bolas de fogo, vento lateral e plataformas em cadeia!</p>
+                            <div class="level-status">🔒 BLOQUEADO</div>
+                            <div class="level-best-time" data-level-time="4"></div>
+                            <div class="level-best-rank" data-level-rank="4"></div>
+                        </div>
+
+                        <div class="level-card" data-level="5">
+                            <span class="level-num">Nível 5</span>
+                            <h3>O Colosso Escaldante</h3>
+                            <p>Fuga épica final com todas as mecânicas!</p>
+                            <div class="level-status">🔒 BLOQUEADO</div>
+                            <div class="level-best-time" data-level-time="5"></div>
+                            <div class="level-best-rank" data-level-rank="5"></div>
+                        </div>
+                    </div>
+                    <button class="btn btn-back" data-back="main-menu">← VOLTAR AO MENU</button>
+                </div>
+            </div>
+
+            <!-- Como Jogar -->
+            <div id="screen-controls" class="menu-screen hidden">
+                <div class="modal-card">
+                    <h2 class="modal-title">CONTROLES & PARKOUR</h2>
+                    <div class="controls-guide">
+                        <div class="control-item">
+                            <div class="keys"><kbd>A</kbd> <kbd>D</kbd> ou <kbd>←</kbd> <kbd>→</kbd></div>
+                            <div class="action"><strong>Mover</strong> - Corra para fugir do dragão!</div>
+                        </div>
+                        <div class="control-item">
+                            <div class="keys"><kbd>Espaço</kbd> ou <kbd>W</kbd> ou <kbd>↑</kbd></div>
+                            <div class="action"><strong>Pular / Pulo Duplo</strong> - Pressione novamente no ar.</div>
+                        </div>
+                        <div class="control-item">
+                            <div class="keys"><kbd>Shift</kbd> ou <kbd>K</kbd></div>
+                            <div class="action"><strong>Dash / Deslizar</strong> - 🛡️ <strong>Atravessa Cachoeiras de Lava</strong> com imunidade!</div>
+                        </div>
+                        <div class="control-item">
+                            <div class="keys"><kbd>Segurar na Parede</kbd></div>
+                            <div class="action"><strong>Wall Jump</strong> - Pule em direção à parede para deslizar e saltar!</div>
+                        </div>
+                        <div class="control-item">
+                            <div class="keys"><kbd>Esc</kbd> ou <kbd>P</kbd></div>
+                            <div class="action"><strong>Pausar</strong> - Pause o jogo a qualquer momento.</div>
+                        </div>
+                        <div class="control-item warning-box">
+                            ⚠️ <strong>ATENÇÃO:</strong> O Dragão ganha velocidade com o tempo! Nos níveis avançados ele entra em FÚRIA e dispara bolas de fogo!
+                        </div>
+                    </div>
+
+                    <h3 class="modal-subtitle">MECÂNICAS ESPECIAIS</h3>
+                    <div class="mechanics-list">
+                        <div class="mechanic-item">
+                            <span class="mechanic-icon">🟫</span>
+                            <span>Plataformas Quebráveis - Desmoronam após pisar!</span>
+                        </div>
+                        <div class="mechanic-item">
+                            <span class="mechanic-icon">🟨</span>
+                            <span>Plataformas Móveis - Se movem horizontal ou verticalmente!</span>
+                        </div>
+                        <div class="mechanic-item">
+                            <span class="mechanic-icon">💨</span>
+                            <span>Zonas de Vento - Empurram você para cima ou para trás!</span>
+                        </div>
+                        <div class="mechanic-item">
+                            <span class="mechanic-icon">🔥</span>
+                            <span>Bolas de Fogo - O dragão dispara a partir do Nível 4!</span>
+                        </div>
+                    </div>
+
+                    <button class="btn btn-back" data-back="main-menu">← VOLTAR AO MENU</button>
+                </div>
+            </div>
+
+            <!-- Configurações -->
+            <div id="screen-settings" class="menu-screen hidden">
+                <div class="modal-card">
+                    <h2 class="modal-title">CONFIGURAÇÕES</h2>
+                    <div class="settings-list">
+                        <div class="setting-row">
+                            <label for="setting-sound">Efeitos de Som (SFX)</label>
+                            <input type="checkbox" id="setting-sound" checked>
+                        </div>
+                        <div class="setting-row">
+                            <label for="setting-music">Música Ambiente</label>
+                            <input type="checkbox" id="setting-music" checked>
+                        </div>
+                        <div class="setting-row">
+                            <label for="setting-volume">Volume Geral</label>
+                            <input type="range" id="setting-volume" min="0" max="100" value="80">
+                        </div>
+                        <div class="setting-row">
+                            <label for="setting-particles">Partículas de Fogo & Brasas</label>
+                            <input type="checkbox" id="setting-particles" checked>
+                        </div>
+                    </div>
+                    <button id="btn-reset-save" class="btn btn-danger-small">🗑️ RESETAR PROGRESSO</button>
+                    <button class="btn btn-back" data-back="main-menu">← VOLTAR AO MENU</button>
+                </div>
+            </div>
+
+            <!-- HUD de Jogo -->
+            <div id="hud" class="hud-layer hidden">
+                <div class="hud-top">
+                    <div class="hud-stat hud-level-indicator">
+                        <span id="hud-level-name" class="hud-level-text">Nível 1: Caverna Sombria</span>
+                    </div>
+
+                    <div class="hud-stat">
+                        <span class="hud-label">DRAGÃO:</span>
+                        <div class="dragon-meter-bar">
+                            <div id="dragon-meter-fill" class="meter-fill" style="width: 70%;"></div>
+                            <span id="dragon-distance-text">35m</span>
+                        </div>
+                    </div>
+
+                    <div class="hud-stat">
+                        <span class="hud-label">TOCHAS:</span>
+                        <span id="torch-counter-text" style="color: #ffaa00; font-family: var(--font-pixel); font-size: 0.9rem;">0 / 7 🔥</span>
+                    </div>
+
+                    <div class="hud-stat">
+                        <span class="hud-label">PROGRESSO:</span>
+                        <div id="level-progress-text">0%</div>
+                    </div>
+
+                    <div class="hud-stat">
+                        <span class="hud-label">TEMPO:</span>
+                        <span id="hud-timer">00:00.0</span>
+                    </div>
+
+                    <button id="btn-pause" class="icon-btn">⏸</button>
+                </div>
+                <div id="door-warning-msg" class="warning-box hidden" style="position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%); pointer-events: none;">
+                    🔒 A PORTA ESTÁ TRANCADA! COLETE TODAS AS TOCHAS DA DUNGEON!
+                </div>
+            </div>
+
+            <!-- Contagem Regressiva -->
+            <div id="countdown-overlay" class="menu-screen hidden" style="pointer-events: none;">
+                <div id="countdown-text" class="countdown-num">3</div>
+            </div>
+
+            <!-- Pause -->
+            <div id="pause-screen" class="menu-screen hidden">
+                <div class="modal-card">
+                    <h2 class="modal-title">JOGO PAUSADO</h2>
+                    <div class="menu-buttons">
+                        <button id="btn-resume" class="btn btn-primary">CONTINUAR FUGA</button>
+                        <button id="btn-restart" class="btn btn-secondary">REINICIAR NÍVEL</button>
+                        <button id="btn-quit" class="btn btn-secondary">MENU PRINCIPAL</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Game Over -->
+            <div id="gameover-screen" class="menu-screen hidden">
+                <div class="modal-card danger-card">
+                    <h2 class="modal-title fire-text">VOCÊ FOI DERROTADO! 🐉</h2>
+                    <p id="go-death-msg" class="gameover-desc">O dragão alcançou você na dungeon...</p>
+                    <div class="stats-box">
+                        <p>Tempo de sobrevivência: <strong id="go-time">00:00</strong></p>
+                        <p>Distância percorrida: <strong id="go-distance">0m</strong></p>
+                    </div>
+                    <div class="menu-buttons">
+                        <button id="btn-retry" class="btn btn-primary">TENTAR NOVAMENTE</button>
+                        <button id="btn-go-menu" class="btn btn-secondary">MENU PRINCIPAL</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Vitória com Ranking -->
+            <div id="victory-screen" class="menu-screen hidden">
+                <div class="modal-card success-card">
+                    <h2 class="modal-title gold-text">VOCÊ ESCAPOU DA DUNGEON! 🎉</h2>
+                    <p class="victory-desc">Seus saltos de parkour garantiram sua liberdade!</p>
+
+                    <!-- Sistema de Ranking -->
+                    <div class="rank-display">
+                        <div id="vic-rank" class="rank-badge rank-s">S</div>
+                        <div id="vic-rank-label" class="rank-label">LENDÁRIO!</div>
+                    </div>
+
+                    <div id="vic-new-record" class="new-record-banner" style="display: none;">
+                        ⭐ NOVO RECORDE! ⭐
+                    </div>
+
+                    <div class="stats-box">
+                        <p>Tempo: <strong id="vic-time">00:00</strong></p>
+                        <p>Melhor tempo: <strong id="vic-best-time">--:--</strong></p>
+                    </div>
+
+                    <div class="menu-buttons">
+                        <button id="btn-next-level" class="btn btn-primary">PRÓXIMO NÍVEL →</button>
+                        <button id="btn-vic-menu" class="btn btn-secondary">MENU PRINCIPAL</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/audio.js"></script>
+    <script src="js/save.js"></script>
+    <script src="js/sprites.js"></script>
+    <script src="js/particles.js"></script>
+    <script src="js/player.js"></script>
+    <script src="js/dragon.js"></script>
+    <script src="js/level.js"></script>
+    <script src="js/game.js"></script>
+    <script src="js/menu.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

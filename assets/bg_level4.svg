@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="768" viewBox="0 0 1024 768">
+  <defs>
+    <linearGradient id="l4Grad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#0e0802"/>
+      <stop offset="50%" stop-color="#241504"/>
+      <stop offset="100%" stop-color="#4a2a07"/>
+    </linearGradient>
+  </defs>
+  <rect width="1024" height="768" fill="url(#l4Grad)"/>
+  <path d="M 0,0 L 240,0 L 180,240 L 0,160 Z" fill="#140b03"/>
+  <path d="M 420,0 L 720,0 L 630,270 L 370,200 Z" fill="#180e04"/>
+  <!-- Forge Heat Sparks -->
+  <circle cx="300" cy="300" r="80" fill="#ffaa00" opacity="0.3"/>
+  <circle cx="700" cy="400" r="100" fill="#ff7700" opacity="0.35"/>
+</svg>

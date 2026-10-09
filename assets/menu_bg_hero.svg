@@ -1,0 +1,109 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720">
+  <defs>
+    <!-- Gradiente do Céu da Caverna -->
+    <linearGradient id="skyGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#08030b"/>
+      <stop offset="45%" stop-color="#19061c"/>
+      <stop offset="100%" stop-color="#360808"/>
+    </linearGradient>
+
+    <!-- Gradiente de Lava Fervente -->
+    <linearGradient id="lavaGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#ff1100"/>
+      <stop offset="50%" stop-color="#ff6600"/>
+      <stop offset="100%" stop-color="#ffcc00"/>
+    </linearGradient>
+
+    <!-- Aura de Fogo do Dragão -->
+    <radialGradient id="dragonAura" cx="30%" cy="40%" r="60%">
+      <stop offset="0%" stop-color="#ff4500" stop-opacity="0.85"/>
+      <stop offset="60%" stop-color="#990000" stop-opacity="0.4"/>
+      <stop offset="100%" stop-color="#000000" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <!-- Fundo da Dungeon -->
+  <rect width="1280" height="720" fill="url(#skyGrad)"/>
+
+  <!-- Lago de Lava no Fundo -->
+  <rect x="0" y="580" width="1280" height="140" fill="url(#lavaGrad)"/>
+  <rect x="0" y="575" width="1280" height="10" fill="#ffffaa"/>
+
+  <!-- Brilho de Fogo -->
+  <circle cx="350" cy="350" r="450" fill="url(#dragonAura)"/>
+
+  <!-- Pilares de Pedra Pixel Art da Caverna -->
+  <path d="M 0,0 L 260,0 L 200,280 L 120,240 L 0,180 Z" fill="#120819"/>
+  <path d="M 1020,0 L 1280,0 L 1280,320 L 1100,250 Z" fill="#14081c"/>
+
+  <!-- Estalactites Pixel Art -->
+  <polygon points="400,0 425,180 450,0" fill="#1c0a26"/>
+  <polygon points="520,0 540,130 560,0" fill="#15071d"/>
+  <polygon points="780,0 805,210 830,0" fill="#1a0924"/>
+
+  <!-- ================= DRAGÃO ÉPICO NO LADO ESQUERDO ================= -->
+  <g transform="translate(60, 100)">
+    <!-- Asas/Sombra do Dragão -->
+    <path d="M 40,80 Q 220,-20 380,40 L 280,180 Z" fill="#1a040b" opacity="0.9"/>
+    
+    <!-- Cabeça e Pescoço do Dragão -->
+    <path d="M 0,380 C 100,280 200,220 320,160 L 420,220 L 340,280 L 260,320 C 180,380 100,420 0,450 Z" fill="#1a0508"/>
+    
+    <!-- Chifres Obscuros -->
+    <path d="M 280,160 Q 380,60 460,30 L 360,180 Z" fill="#2d0a12"/>
+    <circle cx="460" cy="30" r="7" fill="#ff4500"/>
+    
+    <!-- Garganta Incandescente de Fogo -->
+    <ellipse cx="320" cy="230" rx="45" ry="30" fill="#ff3300" opacity="0.85"/>
+    <ellipse cx="320" cy="230" rx="25" ry="15" fill="#ffcc00"/>
+    
+    <!-- Olho Vermelho Incandescente do Dragão -->
+    <circle cx="300" cy="170" r="18" fill="#ff0000"/>
+    <circle cx="300" cy="170" r="11" fill="#ffcc00"/>
+    <ellipse cx="300" cy="170" rx="3" ry="9" fill="#000000"/>
+
+    <!-- Chamas Saindo da Boca do Dragão -->
+    <path d="M 340,240 Q 520,260 620,200 Q 500,320 320,280 Z" fill="#ff5500" opacity="0.8"/>
+    <path d="M 360,250 Q 500,260 580,220 Q 480,300 340,270 Z" fill="#ffdd00"/>
+  </g>
+
+  <!-- ================= PLATAFORMA ELEVADA NO LADO DIREITO (MC ENCARANDO) ================= -->
+  <!-- Precipício de Pedra -->
+  <path d="M 820,380 L 1280,380 L 1280,720 L 760,720 Z" fill="#181124"/>
+  <rect x="820" y="380" width="460" height="12" fill="#ff6600"/>
+
+  <!-- Detalhes de Musgo/Pedra no Precipício -->
+  <rect x="820" y="392" width="460" height="24" fill="#291c3d"/>
+  <path d="M 850,420 L 890,520 L 830,600 Z" fill="#110b1a"/>
+
+  <!-- ================= HERÓI (MC) DE PIXEL ART ENCARANDO O DRAGÃO ================= -->
+  <g transform="translate(880, 275) scale(1.8)">
+    <!-- Capa de Parkour Voando ao Vento -->
+    <path d="M 12,14 Q 35,16 48,26 Q 30,34 10,24 Z" fill="#e63946"/>
+
+    <!-- Corpo / Armadura do Herói -->
+    <rect x="8" y="14" width="16" height="24" rx="3" fill="#2b2d42"/>
+    <rect x="10" y="18" width="12" height="6" fill="#ff7b00"/>
+    <rect x="10" y="28" width="12" height="3" fill="#00f5d4"/>
+
+    <!-- Pernas de Parkour Fincadas no Precipício -->
+    <rect x="8" y="38" width="6" height="20" rx="2" fill="#181824"/>
+    <rect x="18" y="38" width="6" height="20" rx="2" fill="#181824"/>
+
+    <!-- Braço em Pose Tática -->
+    <rect x="2" y="16" width="6" height="16" rx="2" fill="#3d405b"/>
+
+    <!-- Capuz e Visor Cyan Brilhante Encarando o Dragão (Para a Esquerda!) -->
+    <circle cx="16" cy="10" r="10" fill="#181824"/>
+    <rect x="7" y="7" width="9" height="5" rx="1" fill="#00f5d4"/>
+    <circle cx="11" cy="9" r="3" fill="#ffffff"/>
+  </g>
+
+  <!-- Partículas Flutuantes de Brasa -->
+  <circle cx="450" cy="220" r="4" fill="#ffcc00" opacity="0.8"/>
+  <circle cx="600" cy="340" r="5" fill="#ff5500" opacity="0.9"/>
+  <circle cx="750" cy="280" r="3" fill="#ff4500" opacity="0.7"/>
+  <circle cx="520" cy="480" r="6" fill="#ffdd00" opacity="0.85"/>
+  <circle cx="380" cy="520" r="4" fill="#ff2200" opacity="0.9"/>
+  <circle cx="920" cy="200" r="3" fill="#ffaa00" opacity="0.8"/>
+</svg>

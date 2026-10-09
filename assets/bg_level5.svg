@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="768" viewBox="0 0 1024 768">
+  <defs>
+    <linearGradient id="l5Grad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#0a0204"/>
+      <stop offset="50%" stop-color="#210309"/>
+      <stop offset="100%" stop-color="#54040b"/>
+    </linearGradient>
+  </defs>
+  <rect width="1024" height="768" fill="url(#l5Grad)"/>
+  <path d="M 0,0 L 260,0 L 190,260 L 0,180 Z" fill="#140306"/>
+  <path d="M 450,0 L 750,0 L 650,300 L 380,210 Z" fill="#180408"/>
+  <!-- Volcanic Pillars -->
+  <polygon points="250,768 280,350 320,768" fill="#29050d"/>
+  <polygon points="750,768 790,300 840,768" fill="#29050d"/>
+</svg>

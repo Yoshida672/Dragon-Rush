@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="36" height="54" viewBox="0 0 36 54">
+  <!-- Cape -->
+  <path d="M 14,12 L 2,52 L 20,24 Z" fill="#e63946"/>
+  <!-- Body Suit -->
+  <rect x="8" y="14" width="20" height="22" rx="4" fill="#2b2d42"/>
+  <rect x="11" y="18" width="14" height="6" fill="#ff7b00"/>
+  <!-- Legs -->
+  <rect x="10" y="34" width="6" height="18" rx="2" fill="#181824"/>
+  <rect x="20" y="34" width="6" height="18" rx="2" fill="#181824"/>
+  <!-- Head Hood -->
+  <circle cx="18" cy="10" r="10" fill="#181824"/>
+  <!-- Cyan Visor -->
+  <rect x="18" y="7" width="9" height="5" rx="1" fill="#00f5d4"/>
+</svg>

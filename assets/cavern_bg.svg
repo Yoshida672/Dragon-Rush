@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="768" viewBox="0 0 1024 768">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#08040d"/>
+      <stop offset="50%" stop-color="#14091a"/>
+      <stop offset="100%" stop-color="#240710"/>
+    </linearGradient>
+    <radialGradient id="lavaVein" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#ff5500" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#ff0000" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  
+  <!-- Base Dark Wall -->
+  <rect width="1024" height="768" fill="url(#bgGrad)"/>
+  
+  <!-- Rock Shapes -->
+  <path d="M 0,0 L 200,0 L 150,180 L 0,120 Z" fill="#120817"/>
+  <path d="M 400,0 L 650,0 L 580,220 L 350,160 Z" fill="#0f0714"/>
+  <path d="M 800,0 L 1024,0 L 1024,250 L 750,190 Z" fill="#16091e"/>
+  
+  <path d="M 0,768 L 300,768 L 220,580 L 0,640 Z" fill="#150819"/>
+  <path d="M 700,768 L 1024,768 L 1024,550 L 620,620 Z" fill="#180920"/>
+
+  <!-- Lava Cracks -->
+  <path d="M 150,200 Q 300,350 450,250 T 800,450" stroke="#ff4500" stroke-width="4" fill="none" opacity="0.6"/>
+  <path d="M 50,500 Q 250,450 500,600 T 950,520" stroke="#ff7700" stroke-width="3" fill="none" opacity="0.5"/>
+  
+  <!-- Glow Dots -->
+  <circle cx="300" cy="300" r="100" fill="url(#lavaVein)" opacity="0.3"/>
+  <circle cx="750" cy="450" r="120" fill="url(#lavaVein)" opacity="0.25"/>
+</svg>
